@@ -63,4 +63,3 @@ if (project.hasProperty("releasing")) {
         sign(publishing.publications.named("nebula").get())
     }
 }
-

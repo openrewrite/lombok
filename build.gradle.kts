@@ -1,23 +1,19 @@
 plugins {
-    id ("com.netflix.nebula.maven-nebula-publish") version("latest.release")
+    id ("com.netflix.nebula.maven-publish") version("latest.release")
+    id("io.github.gradle-nexus.publish-plugin") version("latest.release")
     signing
 }
 
 group = "org.openrewrite.tools"
 version = "1.18.37"
 
-publishing {
+nexusPublishing {
     repositories {
-        maven {
-            name = "OSSRH"
-            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-
-            credentials {
-                username = findProperty("sonatypeUsername") as String? ?: System.getenv("OSSRH_USERNAME")
-                password = findProperty("sonatypePassword") as String? ?: System.getenv("OSSRH_PASSWORD")
-            }
-        }
+        sonatype()
     }
+}
+
+publishing {
     publications {
         named<MavenPublication>("nebula") {
             artifact(file("libs/lombok-1.18.37.jar")) {

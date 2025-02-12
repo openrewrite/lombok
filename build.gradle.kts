@@ -63,3 +63,7 @@ if (project.hasProperty("releasing")) {
         sign(publishing.publications.named("nebula").get())
     }
 }
+
+tasks.register("final") {
+    description = "Our github automation expects a task with this name to exist"
+}

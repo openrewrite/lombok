@@ -6,6 +6,7 @@ plugins {
 
 group = "org.openrewrite.tools"
 version = "1.18.37"
+description = "Temporary pending the next stable release of lombok"
 
 nexusPublishing {
     repositories {
@@ -27,7 +28,6 @@ publishing {
             }
             pom {
                 name = project.name
-                description = "Temporary pending the next stable release of lombok"
                 url = "https://github.com/openrewrite/lombok"
                 licenses {
                     license {
